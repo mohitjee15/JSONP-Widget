@@ -16,11 +16,23 @@ class ContactsController extends AppController {
         }
 
 
+        //Create JSON for graph test
+        $response['data']['unique'] =   '23';
+        $response['data']['engagements'] =   '67';
+
+        $response['widget_data']['pie']['js'][]   =   "http://local.simplewidget.com/js/vendor/jqplot/jquery.jqplot.min.js";
+        $response['widget_data']['pie']['js'][]   =   "http://local.simplewidget.com/js/vendor/jqplot/plugins/jqplot.pieRenderer.min.js";   
+        $response['widget_data']['pie']['css'][]   =   "http://local.simplewidget.com/js/vendor/jqplot/jquery.jqplot.min.css";
+
+        $response['widget_data']['bar']['js'][]  =   "http://local.simplewidget.com/js/vendor/jqplot/jquery.jqplot.min.js";
+        $response['widget_data']['bar']['js'][]   =   "http://local.simplewidget.com/js/vendor/jqplot/plugins/jqplot.barRenderer.min.js";
+        $response['widget_data']['bar']['css'][]   =   "http://local.simplewidget.com/js/vendor/jqplot/jquery.jqplot.min.css";
+
         //echo "<pre>".print_r($contacts,true)."</pre>";
         //$this->set(array('posts' => $posts, '_serialize' => 'posts'));
         $this->set(array(
-            'contacts'  =>  $contacts,
-            '_serialize' => 'contacts',
+            'response'  =>  $response,
+            '_serialize' => 'response',
             '_jsonp'    =>  true
         ));
     }
